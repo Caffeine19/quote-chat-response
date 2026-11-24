@@ -1,0 +1,64 @@
+{
+  "name": "quote-to-chat",
+  "displayName": "Quote to Chat",
+  "description": "Quote selected text — from an editor or from a chat response — into the Copilot chat input as a Markdown blockquote.",
+  "version": "0.0.2",
+  "publisher": "CaffeineCat",
+  "license": "MIT",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Caffeine19/quote-to-chat"
+  },
+  "keywords": [
+    "chat",
+    "quote",
+    "copilot",
+    "blockquote",
+    "selection",
+    "prompt"
+  ],
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Chat",
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "commands": [
+      {
+        "command": "quoteToChat.quoteSelection",
+        "title": "Quote Selection into Chat",
+        "category": "Quote to Chat",
+        "icon": "$(quote)"
+      },
+      {
+        "command": "quoteToChat.quoteChatSelection",
+        "title": "Quote Selected Chat Text into Input",
+        "category": "Quote to Chat",
+        "icon": "$(quote)"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "quoteToChat.quoteSelection",
+          "when": "editorHasSelection",
+          "group": "1_chat@2"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "install-ext": "bash ./install.sh"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.100.0",
+    "typescript": "^5.8.0"
+  }
+}
