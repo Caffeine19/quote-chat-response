@@ -7,7 +7,7 @@ npm install
 npm run compile
 
 VERSION=$(node -p "require('./package.json').version")
-NAME="CaffeineCat.quote-to-chat-$VERSION"
+NAME="CaffeineCat.quote-chat-response-$VERSION"
 
 for DIR in "$HOME/.vscode/extensions" "$HOME/.vscode-insiders/extensions"; do
     rm -rf "$DIR/$NAME"

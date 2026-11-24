@@ -36,25 +36,10 @@ async function readChatSelection(): Promise<string | undefined> {
 
 export function activate(context: vscode.ExtensionContext): void {
 	context.subscriptions.push(
-		vscode.commands.registerCommand('quoteToChat.quoteSelection', async () => {
-			const editor = vscode.window.activeTextEditor;
-			if (!editor) {
-				void vscode.window.showWarningMessage('Quote to Chat: no active editor.');
-				return;
-			}
-			const selection = editor.selection;
-			if (selection.isEmpty) {
-				void vscode.window.showWarningMessage('Quote to Chat: select some text first.');
-				return;
-			}
-
-			const text = editor.document.getText(selection).replace(/\r\n/g, '\n');
-			await insertQuote(text);
-		}),
-		vscode.commands.registerCommand('quoteToChat.quoteChatSelection', async () => {
+		vscode.commands.registerCommand('quoteChatResponse.quote', async () => {
 			const text = await readChatSelection();
 			if (!text) {
-				void vscode.window.showWarningMessage('Quote to Chat: no text selected in the chat.');
+				void vscode.window.showWarningMessage('Quote Chat Response: no text selected in the chat.');
 				return;
 			}
 			await insertQuote(text);

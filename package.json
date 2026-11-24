@@ -1,21 +1,21 @@
 {
-  "name": "quote-to-chat",
-  "displayName": "Quote to Chat",
-  "description": "Quote selected text — from an editor or from a chat response — into the Copilot chat input as a Markdown blockquote.",
+  "name": "quote-chat-response",
+  "displayName": "Quote Chat Response",
+  "description": "Quote selected text from a chat response into the Copilot chat input as a Markdown blockquote.",
   "version": "0.0.2",
   "publisher": "CaffeineCat",
   "license": "MIT",
   "icon": "icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Caffeine19/quote-to-chat"
+    "url": "https://github.com/Caffeine19/quote-chat-response"
   },
   "keywords": [
     "chat",
     "quote",
     "copilot",
     "blockquote",
-    "selection",
+    "response",
     "prompt"
   ],
   "engines": {
@@ -30,27 +30,12 @@
   "contributes": {
     "commands": [
       {
-        "command": "quoteToChat.quoteSelection",
-        "title": "Quote Selection into Chat",
-        "category": "Quote to Chat",
-        "icon": "$(quote)"
-      },
-      {
-        "command": "quoteToChat.quoteChatSelection",
-        "title": "Quote Selected Chat Text into Input",
-        "category": "Quote to Chat",
+        "command": "quoteChatResponse.quote",
+        "title": "Quote Selected Chat Response into Input",
+        "category": "Quote Chat Response",
         "icon": "$(quote)"
       }
-    ],
-    "menus": {
-      "editor/context": [
-        {
-          "command": "quoteToChat.quoteSelection",
-          "when": "editorHasSelection",
-          "group": "1_chat@2"
-        }
-      ]
-    }
+    ]
   },
   "scripts": {
     "compile": "tsc -p ./",
